@@ -42,6 +42,12 @@ module.exports = webpackMerge(commonConfig, {
 
   plugins: [new webpack.HotModuleReplacementPlugin()],
 
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
+  },
+
   devServer: {
     historyApiFallback: true,
     hot: true,

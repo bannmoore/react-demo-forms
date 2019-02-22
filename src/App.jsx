@@ -1,7 +1,12 @@
 const React = require('react')
-const { hot } = require('react-hot-loader')
+const { setConfig } = require('react-hot-loader')
+const { hot } = require('react-hot-loader/root')
 const Header = require('./components/UI/Header/Header')
 const ScreensRoot = require('./screens/Root')
+
+setConfig({
+  ignoreSFC: true
+})
 
 const App = () => (
   <div className="container">
@@ -10,4 +15,4 @@ const App = () => (
   </div>
 )
 
-module.exports = process.env.NODE_ENV === 'production' ? App : hot(module)(App)
+module.exports = process.env.NODE_ENV === 'production' ? App : hot(App)
