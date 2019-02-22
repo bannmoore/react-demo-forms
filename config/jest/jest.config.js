@@ -5,7 +5,7 @@
 module.exports = {
   rootDir: '../../',
 
-  setupTestFrameworkScriptFile: '<rootDir>/config/jest/setup.js',
+  setupFilesAfterEnv: ['<rootDir>/config/jest/setup.js'],
 
   // exclude App and index from coverage, since they contain no business logic.
   collectCoverageFrom: [
