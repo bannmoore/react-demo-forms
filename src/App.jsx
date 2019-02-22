@@ -1,11 +1,11 @@
 const React = require('react')
 const { hot } = require('react-hot-loader')
-const PageHeader = require('react-bootstrap/lib/PageHeader')
+const Header = require('./components/UI/Header/Header')
 const ScreensRoot = require('./screens/Root')
 
 const App = () => (
   <div className="container">
-    <PageHeader>Form</PageHeader>
+    <Header>Form</Header>
     <ScreensRoot />
   </div>
 )
