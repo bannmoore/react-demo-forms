@@ -4,9 +4,9 @@ const longTextInput = 'input[name=longText]'
 const textError = '.error'
 const submitButton = 'button'
 
-describe('Form', () => {
+describe('Refactored Form', () => {
   beforeEach(() => {
-    cy.visit('/')
+    cy.visit('/refactored')
   })
 
   describe('shortText', () => {
