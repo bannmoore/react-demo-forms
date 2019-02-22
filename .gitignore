@@ -2,4 +2,6 @@ node_modules
 dev
 dist
 cypress/integration/examples
+cypress/screenshots
+cypress/videos
 coverage
