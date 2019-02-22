@@ -1,9 +1,8 @@
 const React = require('react')
 const PropTypes = require('prop-types')
-const PageHeader = require('react-bootstrap/lib/PageHeader')
 
 const Header = function({ children }) {
-  return <PageHeader>{children}</PageHeader>
+  return <h1>{children}</h1>
 }
 
 Header.propTypes = {

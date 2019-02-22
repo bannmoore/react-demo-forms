@@ -1,6 +1,6 @@
 const React = require('react')
 const PropTypes = require('prop-types')
-const UIButton = require('react-bootstrap/lib/Button')
+const UIButton = require('react-bootstrap/Button')
 
 const Button = function({ children, disabled, type }) {
   return (

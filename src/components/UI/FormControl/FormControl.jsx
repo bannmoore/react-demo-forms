@@ -1,8 +1,6 @@
 const React = require('react')
 const PropTypes = require('prop-types')
-const ControlLabel = require('react-bootstrap/lib/ControlLabel')
-const FormGroup = require('react-bootstrap/lib/FormGroup')
-const HelpBlock = require('react-bootstrap/lib/HelpBlock')
+const Form = require('react-bootstrap/Form')
 const Input = require('../Input/Input')
 
 module.exports = class FormControl extends React.Component {
@@ -22,13 +20,17 @@ module.exports = class FormControl extends React.Component {
     value: ''
   }
 
-  getValidationState(error, touched) {
-    return error && touched ? 'error' : null
+  isInvalid(error, touched) {
+    return error && touched
   }
 
-  renderError(error, touched) {
-    if (error && touched) {
-      return <HelpBlock className="error">{error}</HelpBlock>
+  renderError(isInvalid, error) {
+    if (isInvalid) {
+      return (
+        <Form.Control.Feedback type="invalid" className="error">
+          {error}
+        </Form.Control.Feedback>
+      )
     }
     return ''
   }
@@ -36,16 +38,20 @@ module.exports = class FormControl extends React.Component {
   render() {
     const { errors, label, name, touched, value, onBlur, onChange } = this.props
     const error = errors && errors.length ? errors[0] : null
+    const isInvalid = this.isInvalid(error, touched)
 
     return (
-      <FormGroup
-        controlId={name}
-        validationState={this.getValidationState(error, touched)}
-      >
-        <ControlLabel htmlFor={name}>{label}</ControlLabel>
-        <Input name={name} value={value} onBlur={onBlur} onChange={onChange} />
-        {this.renderError(error, touched)}
-      </FormGroup>
+      <Form.Group>
+        <Form.Label htmlFor={name}>{label}</Form.Label>
+        <Input
+          name={name}
+          value={value}
+          onBlur={onBlur}
+          onChange={onChange}
+          isInvalid={isInvalid}
+        />
+        {this.renderError(isInvalid, error)}
+      </Form.Group>
     )
   }
 }

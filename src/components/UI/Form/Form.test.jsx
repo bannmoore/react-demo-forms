@@ -2,7 +2,7 @@ const React = require('react')
 const { shallow } = require('enzyme')
 const Form = require('./Form')
 
-const UIForm = require('react-bootstrap/lib/Form')
+const UIForm = require('react-bootstrap/Form')
 
 describe('Form', () => {
   it('shallow renders without crashing', () => {

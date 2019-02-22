@@ -1,9 +1,11 @@
 const React = require('react')
 const PropTypes = require('prop-types')
-const FormControl = require('react-bootstrap/lib/FormControl')
+const Form = require('react-bootstrap/Form')
 
 module.exports = class Input extends React.Component {
   static propTypes = {
+    isInvalid: PropTypes.bool,
+    isValid: PropTypes.bool,
     name: PropTypes.string,
     value: PropTypes.string,
     onBlur: PropTypes.func,
@@ -26,10 +28,12 @@ module.exports = class Input extends React.Component {
   }
 
   render() {
-    const { name, value } = this.props
+    const { isInvalid, isValid, name, value } = this.props
 
     return (
-      <FormControl
+      <Form.Control
+        isInvalid={isInvalid}
+        isValid={isValid}
         type="text"
         name={name}
         value={value}

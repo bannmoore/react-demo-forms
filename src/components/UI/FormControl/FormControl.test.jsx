@@ -1,7 +1,6 @@
 const React = require('react')
 const { shallow } = require('enzyme')
-
-const HelpBlock = require('react-bootstrap/lib/HelpBlock')
+const Form = require('react-bootstrap/Form')
 
 const FormControl = require('./FormControl')
 
@@ -13,7 +12,7 @@ describe('FormControl', () => {
   it('should not render errors', () => {
     const subject = shallow(<FormControl />)
 
-    expect(subject.find(HelpBlock).length).toBe(0)
+    expect(subject.find(Form.Control.Feedback).length).toBe(0)
   })
 
   it('should not render error while form is untouched', () => {
@@ -21,7 +20,7 @@ describe('FormControl', () => {
     const touched = false
     const subject = shallow(<FormControl errors={errors} touched={touched} />)
 
-    expect(subject.find(HelpBlock).length).toBe(0)
+    expect(subject.find(Form.Control.Feedback).length).toBe(0)
   })
 
   it('should render error', () => {
@@ -29,7 +28,7 @@ describe('FormControl', () => {
     const touched = true
     const subject = shallow(<FormControl errors={errors} touched={touched} />)
 
-    expect(subject.find(HelpBlock).length).toBe(1)
-    expect(subject.find(HelpBlock).props().children).toBe('error')
+    expect(subject.find(Form.Control.Feedback).length).toBe(1)
+    expect(subject.find(Form.Control.Feedback).props().children).toBe('error')
   })
 })

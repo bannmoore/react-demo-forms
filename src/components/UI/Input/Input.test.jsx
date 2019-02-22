@@ -1,8 +1,7 @@
 const React = require('react')
 const { shallow } = require('enzyme')
+const Form = require('react-bootstrap/Form')
 const Input = require('./Input')
-
-const FormControl = require('react-bootstrap/lib/FormControl')
 
 describe('Input', () => {
   it('shallow renders without crashing', () => {
@@ -16,7 +15,7 @@ describe('Input', () => {
       <Input name="field" value="" onChange={td.func()} onBlur={handleBlur} />
     )
 
-    subject.find(FormControl).simulate('blur', {
+    subject.find(Form.Control).simulate('blur', {
       target: {
         name: 'field'
       }
@@ -31,7 +30,7 @@ describe('Input', () => {
       <Input name="field" value="" onChange={handleChange} />
     )
 
-    subject.find(FormControl).simulate('change', {
+    subject.find(Form.Control).simulate('change', {
       target: {
         name: 'field',
         value: 'value'

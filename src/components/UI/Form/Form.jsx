@@ -1,6 +1,6 @@
 const React = require('react')
 const PropTypes = require('prop-types')
-const UIForm = require('react-bootstrap/lib/Form')
+const UIForm = require('react-bootstrap/Form')
 
 module.exports = class Form extends React.Component {
   static propTypes = {
