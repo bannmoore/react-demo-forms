@@ -4,12 +4,14 @@ const { BrowserRouter, Route, Switch } = require('react-router-dom')
 
 const BaseForm = require('../components/Base/Form/Form')
 const RefactoredForm = require('../components/Refactored/Form/Form')
+const ContextPage = require('../components/Context/Page/Page')
 
 const ScreensRoot = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/base" component={BaseForm} />
       <Route exact path="/refactored" component={RefactoredForm} />
+      <Route exact path="/context" component={ContextPage} />
     </Switch>
   </BrowserRouter>
 )
